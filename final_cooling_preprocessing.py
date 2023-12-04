@@ -60,21 +60,21 @@ for k in range(len(dsets)):
             if(dsets[0].iloc[i, 2] != 0):           #Making sure fan values are constant when on
                 dsets[0].iloc[i, 2] = 4096.0
 
-            if((prob <= 0.0001) and (i > counter) and (i < int(len(dsets[k]) - (len(dsets[k]) * 0.20))) and (dsets[k].iloc[i,0] >= 86.0)):
+            if((prob <= 0.00007) and (i > counter) and (i < int(len(dsets[k]) - (len(dsets[k]) * 0.20))) and (dsets[k].iloc[i,0] >= 86.0)):
                 dipsize = random.randrange(5, 30, 1)
                 row = dsets[k].iloc[i]
                 currval = row[0]
                 tarval = currval - int((dipsize/100)*currval)
                 if(dipsize <= 10):
-                    first = 400
+                    first = 600
                     second = 600
-                    third = 720
-                elif(dipsize <= 20):
-                    first = 800
+                    third = 920
+                elif(dipsize <= 15):
+                    first = 1200
                     second = 1000
-                    third = 1400
+                    third = 2100
                 else:
-                    first = 2100
+                    first = 2500
                     second = 2400
                     third = 4000
 
@@ -116,6 +116,20 @@ plt.figure(figsize=(15,5))
 plt.plot(dsets[0]['64817-1598'], linewidth = 1, alpha = 0.5, label = 'Actual')
 plt.plot(moving_avg(dsets[0]['64817-1598'], 1000), 'C0', label = 'moving average, N = 1000')
 plt.xlim(0,len(dsets[0]['64817-1598']))
+plt.ylim(4040, 4100)
+plt.title('After Turning Off - Fan speed (rpm) - Synthetic')
+plt.legend()
+plt.figure(figsize=(15,5))                
+plt.plot(dsets[1]['65262-110'], linewidth = 1, alpha = 0.5, label = 'Actual')
+plt.plot(moving_avg(dsets[1]['65262-110'], 1000), 'C0', label = 'moving average, N = 1000')
+plt.xlim(0,len(dsets[1]['65262-110']))
+plt.ylim(60, 100)
+plt.title('After Dip - Coolant Temperature (Celsius) - Synthetic')
+plt.legend()
+plt.figure(figsize=(15,5))
+plt.plot(dsets[1]['64817-1598'], linewidth = 1, alpha = 0.5, label = 'Actual')
+plt.plot(moving_avg(dsets[1]['64817-1598'], 1000), 'C0', label = 'moving average, N = 1000')
+plt.xlim(0,len(dsets[1]['64817-1598']))
 plt.ylim(4040, 4100)
 plt.title('After Turning Off - Fan speed (rpm) - Synthetic')
 plt.legend()
