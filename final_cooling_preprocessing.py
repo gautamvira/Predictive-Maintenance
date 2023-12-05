@@ -61,7 +61,7 @@ for k in range(len(dsets)):
                 dsets[0].iloc[i, 2] = 4096.0
 
             if((prob <= 0.00007) and (i > counter) and (i < int(len(dsets[k]) - (len(dsets[k]) * 0.20))) and (dsets[k].iloc[i,0] >= 86.0)):
-                dipsize = random.randrange(5, 30, 1)
+                dipsize = random.randrange(4, 28, 1)
                 row = dsets[k].iloc[i]
                 currval = row[0]
                 tarval = currval - int((dipsize/100)*currval)
@@ -69,14 +69,14 @@ for k in range(len(dsets)):
                     first = 600
                     second = 600
                     third = 920
-                elif(dipsize <= 15):
+                elif(dipsize <= 12):
                     first = 1200
                     second = 1000
                     third = 2100
                 else:
-                    first = 2500
+                    first = 2800
                     second = 2400
-                    third = 4000
+                    third = 5000
 
                 for j in range(i, i+first, 1):                       #decrease in temperature
                     sub = random.randint(0,100)
