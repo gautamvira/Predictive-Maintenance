@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import random
 
 dsets = []
-for i in range(39):         #Creating a list of all the datasets
+for i in range(31,39):         #Creating a list of all the datasets
     dsets.append(pd.read_csv(r'C:\Users\virag\Documents\GitHub\Predictive-Maintenance\Generated_cooling_sys\synthetic_cooling+'+str(i)+'.csv'))
 
 print(dsets[1].head())
@@ -53,6 +53,7 @@ for k in range(len(dsets)):
     '''
     Introducing the behavior of coolant temperature dipping.
     '''
+    flag = True
     counter = int(len(dsets[k])/5)
     for i in range(len(dsets[k])):
             prob = random.random()
@@ -60,8 +61,11 @@ for k in range(len(dsets)):
             if(dsets[0].iloc[i, 2] != 0):           #Making sure fan values are constant when on
                 dsets[0].iloc[i, 2] = 4096.0
 
-            if((prob <= 0.00007) and (i > counter) and (i < int(len(dsets[k]) - (len(dsets[k]) * 0.20))) and (dsets[k].iloc[i,0] >= 86.0)):
-                dipsize = random.randrange(4, 28, 1)
+            if((prob <= 0.00009) and (i > (counter+8000)) and (i < int(len(dsets[k]) - (len(dsets[k]) * 0.20))) and (dsets[k].iloc[i,0] >= 86.0)):
+                if flag == True:
+                    dipsize = random.randrange(4, 28, 1)
+                else:
+                    dipsize = random.randrange(4, 15, 1)
                 row = dsets[k].iloc[i]
                 currval = row[0]
                 tarval = currval - int((dipsize/100)*currval)
@@ -74,6 +78,8 @@ for k in range(len(dsets)):
                     second = 1000
                     third = 2100
                 else:
+                    if dipsize > 20:
+                        flag = False
                     first = 2800
                     second = 2400
                     third = 5000
@@ -144,8 +150,8 @@ for i in range(len(dsets)):                     #Changing coolant levels for rob
         dsets[i]['65263-111'] += inc
 
 #Saving all the modified datasets
-path = r'C:\Users\virag\Documents\GitHub\Predictive-Maintenance\Final_cooling_sys_data'
+path = r'C:\Users\virag\Documents\GitHub\Predictive-Maintenance\cool_tests'
 for i in range(len(dsets)):         #Creating a list of all the datasets
-    dsets[i].to_csv(path+'\\final_cooling_dset_'+str(i)+'.csv')
+    dsets[i].to_csv(path+'\\final_cooling_dset_test_'+str(i)+'.csv')
 
 plt.show()
