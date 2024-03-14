@@ -10,8 +10,6 @@ parameters are used mainly for coolant temperature and coolant level. \
 The last few analytics performed on the data suggest that the wheel speed information and the engine speed sensors are just noise. \
 
 ## Additional Notes
-Learn more about the DCGAN architecture used in Gretel's model (such as the distribution they sample from, etc). \
-Mention the Hybrid system of the bus used for data collection and justify the choice of sensor readings selected (a more universal approach to incorporate combustion engines due to the common features and so on).\
 Data processing generates a large csv file with each spn as a column.
 Every time-series entry is a row for a particular PGN-SPN pair,
 the remaining columns are filled with NULL which are then replaced by
