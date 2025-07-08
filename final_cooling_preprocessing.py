@@ -150,7 +150,7 @@ for i in range(len(dsets)):                     #Changing coolant levels for rob
         dsets[i]['65263-111'] += inc
 
 #Saving all the modified datasets
-path = r'C:\Users\virag\Documents\GitHub\Predictive-Maintenance\cool_tests'
+path = r'cool_tests'
 for i in range(len(dsets)):         #Creating a list of all the datasets
     dsets[i].to_csv(path+'\\final_cooling_dset_test_'+str(i)+'.csv')
 
