@@ -6,7 +6,7 @@ import random
 
 dsets = []
 for i in range(31,39):         #Creating a list of all the datasets
-    dsets.append(pd.read_csv(r'C:\Users\virag\Documents\GitHub\Predictive-Maintenance\Generated_cooling_sys\synthetic_cooling+'+str(i)+'.csv'))
+    dsets.append(pd.read_csv(r'Generated_cooling_sys\synthetic_cooling+'+str(i)+'.csv'))
 
 print(dsets[1].head())
 
