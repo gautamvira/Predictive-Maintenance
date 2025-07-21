@@ -51,5 +51,5 @@ pip install -r requirements.txt
 ## References:
 
 [1]	Vira, G., Killeen, P., Yeap, T., and Kiringa, I. Predictive Maintenance by Detection of Gradual Faults in an IoT-Enabled Public Bus. 2024. IEEE Canadian Conference on Electrical and Computer Engineering.  
-[2]	Vira, G., Yeap, T., Kiringa, I. Predictive Maintenance by the Unsupervised Clustering of Gradual Faults in a fleet of IoT-based Public Buses. 2025. ACM Transactions on Sensor Networks,
+[2]	Vira, G., Yeap, T., Kiringa, I. Predictive Maintenance by the Unsupervised Clustering of Gradual Faults in a fleet of IoT-based Public Buses. 2025. ACM Transactions on Sensor Networks.
 
