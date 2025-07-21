@@ -23,8 +23,8 @@ Predictive-Maintenance/
 │   └── cool_tests.zip  
 │  
 ├── src/                            # Source code and notebooks  
-│   ├── cooling/                    # Cooling system clustering  
-│   ├── engine/                     # Engine system clustering  
+│   ├── cooling/                    # Cooling system clustering and synthetic data generation 
+│   ├── engine/                     # Engine system clustering and synthetic data generation
 │   ├── GAN_LSTM_generator.ipynb    # GAN-LSTM synthetic data generator  
 │   └── validating_synthetic_data.ipynb  # Synthetic vs real data comparison  
 │  
