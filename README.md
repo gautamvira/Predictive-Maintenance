@@ -15,6 +15,7 @@ The approach includes:
 
 ---
 ## Repository Structure:
+```
 Predictive-Maintenance/  
 ├── data/                          # Zipped synthetic datasets  
 │   ├── Final_cooling_sys_data.zip  
@@ -31,7 +32,7 @@ Predictive-Maintenance/
 ├── .gitignore  
 ├── LICENSE  
 └── README.md  
-
+```
 ---
 ## Installation
 
